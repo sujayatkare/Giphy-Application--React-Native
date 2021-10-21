@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "351696183028",
+    "project_id": "mindbowserassignment",
+    "storage_bucket": "mindbowserassignment.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:351696183028:android:0ed8f2557301868adf08a1",
+        "android_client_info": {
+          "package_name": "com.mindbowserassignment_sujay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "351696183028-6e5g3irs8motavm9s17k1ffvm9n21j4n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCA5WuZRoHsTAoP_A8MhkyzD5t6EtoXD_s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "351696183028-6e5g3irs8motavm9s17k1ffvm9n21j4n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
