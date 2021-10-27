@@ -12,15 +12,13 @@ import {
 import {windowWidth} from '../Utils/Dimensions/Dimensions';
 import {FONTS} from '../Utils/Fonts/Fonts';
 import {COLORS} from '../Colors/Colors';
+import database from '@react-native-firebase/database';
 
 const DataDisplayScreen = ({currentItems, navigation}) => {
-  const [isfilled, setIsFilled] = useState(false);
   const [visible, setVisible] = useState(false);
   const [favourite, setFavourite] = useState([]);
 
   const ToggleSnackBar = () => {
-    setIsFilled(isfilled => !isfilled);
-    setFavourite(currentItems.title);
     setVisible(true);
     setTimeout(() => {
       setVisible(false);
@@ -28,6 +26,33 @@ const DataDisplayScreen = ({currentItems, navigation}) => {
   };
   const onDismissSnackBar = () => {
     setVisible(false);
+  };
+
+  const addToFavourite = item => {
+    setFavourite([...favourite, {id: item.id}]);
+    const databaseRef = database().ref('/favourite').push();
+    console.log('Auto generated key: ', databaseRef.key);
+    databaseRef.set({
+      name: item.title,
+      value: item.title,
+    });
+  };
+
+  React.useEffect(() => {
+    console.log('hi', favourite);
+  }, [favourite]);
+
+  const onRemoveFavorite = async (el, key) => {
+    const filteredList = favourite.filter(item => item.id !== el.id);
+    setFavourite(filteredList);
+    await database().ref(`/favourite/${key}`).remove();
+  };
+
+  const ifExists = el => {
+    if (favourite.filter(item => item.id === el.id).length > 0) {
+      return true;
+    }
+    return false;
   };
 
   return (
@@ -50,8 +75,11 @@ const DataDisplayScreen = ({currentItems, navigation}) => {
                   </TouchableOpacity>
                 </View>
                 <View style={{width: windowWidth * 0.1}}>
-                  <TouchableOpacity onPress={() => ToggleSnackBar()}>
-                    {isfilled === true ? (
+                  <TouchableOpacity
+                    onPress={() =>
+                      ifExists(el) ? onRemoveFavorite(el) : addToFavourite(el)
+                    }>
+                    {ifExists(el) ? (
                       <>
                         <Image
                           source={require('../Assets/heart_filled.png')}
