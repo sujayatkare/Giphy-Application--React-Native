@@ -69,6 +69,7 @@ const DataDisplayScreen = ({currentItems, navigation}) => {
                         title: el.title,
                         description: el.user,
                         image: el.images.fixed_height.url,
+                        favourite: () => addToFavourite(el),
                       })
                     }>
                     <Text style={styles.titleText}>{el.title}</Text>

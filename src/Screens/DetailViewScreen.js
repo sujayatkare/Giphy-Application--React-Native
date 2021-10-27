@@ -4,9 +4,10 @@ import {windowWidth} from '../Utils/Dimensions/Dimensions';
 
 import {FONTS} from '../Utils/Fonts/Fonts';
 import {COLORS} from '../Colors/Colors';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const DetailViewScreen = ({route, navigation}) => {
-  const {title, image, description} = route.params;
+  const {title, image, description, favourite} = route.params;
   return (
     <View style={styles.mainContainer}>
       <View style={styles.titleContainer}>
@@ -20,6 +21,49 @@ const DetailViewScreen = ({route, navigation}) => {
             <Text style={styles.subText}>{description.description}</Text>
           </View>
         )}
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+            width: windowWidth * 0.8,
+            alignSelf: 'center',
+            marginTop: 20,
+          }}>
+          <Text
+            style={{
+              marginRight: 10,
+              fontFamily: FONTS.ubuntu,
+              color: COLORS.white,
+            }}>
+            Add To Favourite
+          </Text>
+          {favourite === true ? (
+            <TouchableOpacity>
+              <Image
+                source={require('../Assets/heart_filled.png')}
+                style={{
+                  width: 15,
+                  height: 15,
+                  resizeMode: 'contain',
+                  tintColor: COLORS.red,
+                }}
+              />
+            </TouchableOpacity>
+          ) : (
+            <TouchableOpacity>
+              <Image
+                source={require('../Assets/heart.png')}
+                style={{
+                  width: 15,
+                  height: 15,
+                  resizeMode: 'contain',
+                  tintColor: COLORS.red,
+                }}
+              />
+            </TouchableOpacity>
+          )}
+        </View>
       </View>
     </View>
   );
