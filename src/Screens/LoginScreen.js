@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'center',
-    backgroundColor: 'black',
+    backgroundColor: COLORS.black,
   },
   logo: {
     width: windowWidth * 0.9,
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: FONTS.ubuntu,
     fontSize: 25,
-    color: 'white',
+    color: COLORS.white,
     textAlign: 'left',
     width: windowWidth * 0.9,
     alignSelf: 'center',
@@ -108,13 +108,13 @@ const styles = StyleSheet.create({
   },
   titleText: {
     fontFamily: FONTS.carter,
-    color: 'white',
+    color: COLORS.white,
     marginBottom: 5,
     fontSize: 16,
   },
   textInputStyles: {
     borderWidth: 1,
-    borderColor: 'white',
+    borderColor: COLORS.white,
     width: windowWidth * 0.9,
     alignSelf: 'center',
     height: 40,
@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     width: windowWidth * 0.9,
     height: 40,
     borderWidth: 1,
-    borderColor: 'white',
+    borderColor: COLORS.white,
     borderRadius: 20,
     marginBottom: 50,
     paddingLeft: 20,
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     width: 20,
     height: 20,
     resizeMode: 'contain',
-    tintColor: 'white',
+    tintColor: COLORS.white,
   },
   buttonContainer: {
     width: windowWidth * 0.9,
